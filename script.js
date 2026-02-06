@@ -15,8 +15,8 @@ const greenHashColor = '#00ff44';
 
 cardsRecolorButton.addEventListener('click', () => {
   catalogCards.forEach (
-    card => card.style.backgroundColor = greenHashColor
-  );
+    card => { card.style.backgroundColor = greenHashColor;
+  });
 })
 
 // Переходит на сайт Google
@@ -38,7 +38,7 @@ function openGoogle() {
 
 const header = document.querySelector('.header')
 header.addEventListener('mouseover', () => {
-  console.log('Выбери свой продукт')
+  console.log(header)
 })
 
 // Кнопка-перекраска
