@@ -25,7 +25,7 @@ const googleOpenButton = document.getElementById('google-open-button');
 googleOpenButton.addEventListener('click', openGoogle);
 
 function openGoogle() {
-  const answer = confirm('Вы действительно хотите перейти на сайт Google?')
+  const answer = confirm('Вы действительно хотите перейти на сайт Google?');
   
   if (answer) {
     window.open('https://google.com');
@@ -36,14 +36,16 @@ function openGoogle() {
 
 // Выводит контент заголовка страницы
 
-const header = document.querySelector('.header')
-header.addEventListener('mouseover', () => {
-  console.log(header)
+const header = document.querySelector('.header');
+
+header.addEventListener('mouseenter', () => {
+  console.log(header.textContent)
 })
 
 // Кнопка-перекраска
 
 const recolorButton = document.getElementById('recolor-button');
+
 recolorButton.addEventListener('click', () => {
   recolorButton.classList.toggle('second-color-button')
 })
