@@ -1,33 +1,33 @@
 // Меняет цвет первой карточки
 
-const recolorFirstCardButton = document.getElementById('recolor-first-card-button');
+const firstCardRecolorButton = document.getElementById('first-card-recolor-button');
 const firstCatalogCard = document.querySelector('.product-card');
 
-recolorFirstCardButton.addEventListener('click', () => {
+firstCardRecolorButton.addEventListener('click', () => {
   firstCatalogCard.style.backgroundColor = '#0000ff'
 })
 
 // Меняет цвет всех карточек
 
-const recolorCardsButton = document.getElementById('recolor-all-card-button');
+const cardsRecolorButton = document.getElementById('all-card-recolor-button');
 const catalogCards = document.querySelectorAll('.product-card');
 const greenHashColor = '#00ff44';
 
-recolorCardsButton.addEventListener('click', () => {
+cardsRecolorButton.addEventListener('click', () => {
   catalogCards.forEach (
     card => card.style.backgroundColor = greenHashColor
-  )
+  );
 })
 
 // Переходит на сайт Google
 
-const openGoogleButton = document.getElementById('open-google-button');
-openGoogleButton.addEventListener('click', openGoogle);
+const googleOpenButton = document.getElementById('google-open-button');
+googleOpenButton.addEventListener('click', openGoogle);
 
 function openGoogle() {
   const answer = confirm('Вы действительно хотите перейти на сайт Google?')
   
-  if (answer === true) {
+  if (answer) {
     window.open('https://google.com');
   } else {
     console.log('Пользователь отменил переход на сайт Google')
@@ -36,8 +36,8 @@ function openGoogle() {
 
 // Выводит контент заголовка страницы
 
-const h1 = document.querySelector('.header')
-h1.addEventListener('mouseover', () => {
+const header = document.querySelector('.header')
+header.addEventListener('mouseover', () => {
   console.log('Выбери свой продукт')
 })
 
