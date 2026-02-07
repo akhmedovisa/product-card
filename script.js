@@ -14,8 +14,8 @@ const catalogCards = document.querySelectorAll('.product-card');
 const greenHashColor = '#00ff44';
 
 cardsRecolorButton.addEventListener('click', () => {
-  catalogCards.forEach (
-    card => { card.style.backgroundColor = greenHashColor;
+  catalogCards.forEach (card => {
+    card.style.backgroundColor = greenHashColor;
   });
 })
 
