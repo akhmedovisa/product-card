@@ -27,7 +27,7 @@ console.log(checkSpeed(299));
 const product = 'рис';
 const price = 100;
 
-const paysProduct = (budget) => {
+const purchaseProduct = (budget) => {
   const difference = price-budget;
   if (budget >= price) {
     console.log(`${product} приобретён. Спасибо за покупку!`)
@@ -36,8 +36,8 @@ const paysProduct = (budget) => {
   }
 }
 
-paysProduct(50);
-paysProduct(175);
+purchaseProduct(50);
+purchaseProduct(175);
 
 // Доп.задание
 
