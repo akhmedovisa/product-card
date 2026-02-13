@@ -1,8 +1,8 @@
 // Функция, которая выводит в консоль температуру воздуха города X
 
-const cityTemperature = (city,degree) => (`Сейчас в ${city} температура ${degree} градусов по Цельсию`);
+const showCityTemperature = (city,degree) => (`Сейчас в ${city} температура ${degree} градусов по Цельсию`);
 
-console.log(cityTemperature('Москве','- 5'));
+console.log(showCityTemperature('Москве','- 5'));
 
 // Функция, которая проверяет заданную скорость и придаёт ей название.
 
@@ -27,7 +27,7 @@ console.log(checkSpeed(299));
 const product = 'рис';
 const price = 100;
 
-const checkBudget = (budget) => {
+const paysProduct = (budget) => {
   const difference = price-budget;
   if (budget >= price) {
     console.log(`${product} приобретён. Спасибо за покупку!`)
@@ -36,8 +36,8 @@ const checkBudget = (budget) => {
   }
 }
 
-checkBudget(50)
-checkBudget(175)
+paysProduct(50);
+paysProduct(175);
 
 // Доп.задание
 
@@ -49,7 +49,7 @@ const checkParity = (number) => {
     return 'нечётное'
   }
 }
-console.log(parityCheck(5));
+console.log(checkParity(5));
 
 let totalPopulation = 8275602508;
 let totalNumberCountries = 195;
