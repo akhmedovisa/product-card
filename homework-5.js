@@ -42,7 +42,7 @@ purchaseProduct(175);
 // Доп.задание
 
 const checkParity = (number) => {
-  if (number % 2 == 0) {
+  if (number % 2 === 0) {
     return 'чётное'
   }
   else {
