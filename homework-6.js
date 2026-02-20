@@ -119,7 +119,6 @@ console.log(allBooks);
 // Задание-10, узнать про метод массива - map, написать с его помощью функцию (для наглядности буду считать редкими те книги, у которых год выпуска < 1950)
 
 const checkRare = allBooks.map(function (book, i) {
-  console.log(i)
   if (book.publicationYear < 1950) {
     allBooks[i].isRare = 'true';
     return 'true';
