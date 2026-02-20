@@ -27,10 +27,10 @@ carInformation.carOwner = myInfo
 // Задание-5, создать функцию, для проверки наличия свойства "максимальная скорость" в объекте: "carInformation", если сво-ва нет, то задать его.
 
 const checkMaxSpeedInObject = ({maxSpeed}) => {
-  if (carInformation.maxSpeed === undefined) {
-    carInformation.maxSpeed = 200
-  } else {
+  if (carInformation.maxSpeed) {
     return
+  } else {
+    carInformation.maxSpeed = 200
   }
 }
 
@@ -59,6 +59,7 @@ const books = [
   coverColor: "Blue",
   genre: "Historical Fiction"
 },
+
 {
   title: "Pride and Prejudice",
   author: "Jane Austen",
@@ -66,6 +67,7 @@ const books = [
   coverColor: "Green",
   genre: "Romance"
 },
+
 {
   title: "1984",
   author: "George Orwell",
@@ -75,7 +77,7 @@ const books = [
 },
 ];
 
-const book4 = {
+const newBook = {
   title: "The Great Gatsby",
   author: "F. Scott Fitzgerald",
   publicationYear: 1925,
@@ -83,7 +85,7 @@ const book4 = {
   genre: "Classic Fiction"
 }
 
-books.push(book4)
+books.push(newBook)
 console.log(books);
 
 // Задание-9, создать еще один массив с книгами, но относящимися к другой тематике (Гари Поттер) и соединить два массива в один.
@@ -96,6 +98,7 @@ const garryPotterBooks = [
   coverColor: "Red",
   genre: "Fantasy"
 },
+
 {
   title: "Harry Potter and the Chamber of Secrets",
   author: "J.K. Rowling",
@@ -103,6 +106,7 @@ const garryPotterBooks = [
   coverColor: "Green",
   genre: "Fantasy"
 },
+
 {
   title: "Harry Potter and the Prisoner of Azkaban",
   author: "J.K. Rowling",
@@ -117,14 +121,12 @@ console.log(allBooks);
 
 // Задание-10, узнать про метод массива - map, написать с его помощью функцию (для наглядности буду считать редкими те книги, у которых год выпуска < 1950)
 
-const checkRareBook = (array) => {
-  for (let i = 0; i != allBooks.length; i++) {
-    if (allBooks[i].publicationYear < 1950) {
-      allBooks[i].isRare = "true"
-    } else {
-      allBooks[i].isRare = "false"
-    }
-}
-}
-checkRareBook(allBooks)
+const transformed = allBooks.map(function (book,i) {
+  console.log(i)
+  if (book.publicationYear < 1950) {
+    allBooks[i].isRare = 'true'
+  } else {
+    allBooks[i].isRare = 'false'
+  }
+})
 console.log(allBooks)
