@@ -22,7 +22,7 @@ const carInformation = {
   color: "black",
 };
 
-carInformation.carOwner = myInfo
+carInformation.carOwner = myInfo;
 
 // Задание-5, создать функцию, для проверки наличия свойства "максимальная скорость" в объекте: "carInformation", если сво-ва нет, то задать его.
 
@@ -32,104 +32,102 @@ const checkMaxSpeedInObject = ({maxSpeed}) => {
   } else {
     carInformation.maxSpeed = 200
   }
-}
+};
 
-checkMaxSpeedInObject(carInformation)
+checkMaxSpeedInObject(carInformation);
 console.log(carInformation);
 
 // Задание-6, написать функцию, первый аргумент которой будет- объект, а второй - его свойство, которое нужно вывести, однако вывести нужно само значение.
 
 const getValueObjectProperty = (object, property) => {
-  console.log(object[property])
-}
+  console.log(object[property]);
+};
 
 getValueObjectProperty(carInformation, "make")
 
 // Задание-7 создать массив, содержащий название продуктов
 
-const products = ['рис', 'мука', 'яйца', 'шоколад', 'молоко']
+const products = ['рис', 'мука', 'яйца', 'шоколад', 'молоко'];
 
 // Задание-8, создать массив, в него запихнуть объекты, внутри которых будут характеристики книг (название, дата издания и т.д)
 
 const books = [
-{
-  title: "War and Peace",
-  author: "Leo Tolstoy",
-  publicationYear: 1869,
-  coverColor: "Blue",
-  genre: "Historical Fiction"
-},
-
-{
-  title: "Pride and Prejudice",
-  author: "Jane Austen",
-  publicationYear: 1813,
-  coverColor: "Green",
-  genre: "Romance"
-},
-
-{
-  title: "1984",
-  author: "George Orwell",
-  publicationYear: 1949,
-  coverColor: "Red",
-  genre: "Dystopian Fiction"
-},
+  {
+    title: "War and Peace",
+    author: "Leo Tolstoy",
+    publicationYear: 1869,
+    coverColor: "Blue",
+    genre: "Historical Fiction"
+  },
+  {
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    publicationYear: 1813,
+    coverColor: "Green",
+    genre: "Romance"
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    publicationYear: 1949,
+    coverColor: "Red",
+    genre: "Dystopian Fiction"
+  }
 ];
 
-const newBook = {
+const gatsbyBook = {
   title: "The Great Gatsby",
   author: "F. Scott Fitzgerald",
   publicationYear: 1925,
   coverColor: "Yellow",
   genre: "Classic Fiction"
-}
+};
 
-books.push(newBook)
+books.push(gatsbyBook);
+
 console.log(books);
 
 // Задание-9, создать еще один массив с книгами, но относящимися к другой тематике (Гари Поттер) и соединить два массива в один.
 
 const garryPotterBooks = [
-{
-  title: "Harry Potter and the Sorcerer's Stone",
-  author: "J.K. Rowling",
-  publicationYear: 1997,
-  coverColor: "Red",
-  genre: "Fantasy"
-},
-
-{
-  title: "Harry Potter and the Chamber of Secrets",
-  author: "J.K. Rowling",
-  publicationYear: 1998,
-  coverColor: "Green",
-  genre: "Fantasy"
-},
-
-{
-  title: "Harry Potter and the Prisoner of Azkaban",
-  author: "J.K. Rowling",
-  publicationYear: 1999,
-  coverColor: "Blue",
-  genre: "Fantasy"
-}
+  {
+    title: "Harry Potter and the Sorcerer's Stone",
+    author: "J.K. Rowling",
+    publicationYear: 1997,
+    coverColor: "Red",
+    genre: "Fantasy"
+  },
+  {
+    title: "Harry Potter and the Chamber of Secrets",
+    author: "J.K. Rowling",
+    publicationYear: 1998,
+    coverColor: "Green",
+    genre: "Fantasy"
+  },
+  {
+    title: "Harry Potter and the Prisoner of Azkaban",
+    author: "J.K. Rowling",
+    publicationYear: 1999,
+    coverColor: "Blue",
+    genre: "Fantasy"
+  }
 ];
 
-const allBooks = [...books, ...garryPotterBooks]
+const allBooks = [...books, ...garryPotterBooks];
 console.log(allBooks);
 
 // Задание-10, узнать про метод массива - map, написать с его помощью функцию (для наглядности буду считать редкими те книги, у которых год выпуска < 1950)
 
-const checkRare = allBooks.map(function (book,i) {
+const checkRare = allBooks.map(function (book, i) {
   console.log(i)
   if (book.publicationYear < 1950) {
-    allBooks[i].isRare = 'true'
-    return 'true'
+    allBooks[i].isRare = 'true';
+    return 'true';
   } else {
-    allBooks[i].isRare = 'false'
-    return 'false'
+    allBooks[i].isRare = 'false';
+    return 'false';
   }
-})
-console.log(allBooks)
-console.log(checkRare)
+});
+
+console.log(allBooks);
+console.log(checkRare);
