@@ -50,7 +50,7 @@ console.log(condensedInfoForUsers2);
 // №10
 
 comments.forEach(user => {
-  user.isInvalid = user.body > 180;
+  user.isInvalid = user.body.length > 180;
 });
 
 console.log(comments);
