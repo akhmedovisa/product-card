@@ -72,6 +72,8 @@
 .product-card__images {
   width: 100%;
   display: block;
+  width: 290px;
+  height: 245px;
 }
 
 .product-card__for-skin {
