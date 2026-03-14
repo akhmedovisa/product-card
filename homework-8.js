@@ -15,7 +15,7 @@ function renderingOfProductCards(array, quantityProductsCard) {
 
       clone.querySelector('.product-card__title').textContent = productCard.title;
       clone.querySelector('.product-card__descr').textContent = productCard.description;
-      clone.querySelector('.product-card__amount').textContent = productCard.amount;
+      clone.querySelector('.product-card__amount').textContent = `${productCard.amount} ${productCard.currency}`;
       
       const list = clone.querySelector('.product-card__composition');
       list.innerHTML = '';
