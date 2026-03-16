@@ -1,42 +1,47 @@
-export const productsCard = [
+export const productCards = [
   {
     image: "moisturizing-mousse",
     title: "Увлажняющий мусс",
+    skinType: "для нормальной кожи",
     description: "Глубоко увлажняет кожу лица, оставляя её мягкой и гладкой.",
     composition: ["активные натуральные комплексы", "витамины C, A, PP, B и E", "солнцезащитные компоненты"],
-    amount: "2 750",
+    price: 2750,
     currency: "₽"
   },
   {
     image: "moisturizing-mask",
     title: "Увлажняющая маска",
+    skinType: "для нормальной кожи",
     description: "Способствует удерживанию влаги в верхних слоях кожи.",
     composition: ["воски", "минералы", "масла"],
-    amount: "3 500",
+    price: 3500,
     currency: "₽"
   },
   {
     image: "cleansing-gel",
     title: "Гель для умывания",
+    skinType: "для нормальной кожи",
     description: "Интенсивно очищает, не повреждает защитный барьер кожи.",
     composition: ["минералы", "витамины С, А, РР, В И Е", "солнцезащитные компоненты"],
-    amount: "1 650",
+    price: 1650,
     currency: "₽"
   },
   {
     image: "gift_set_1",
     title: "Подарочный набор № 1",
+    skinType: "для нормальной кожи",
     description: "Набор, состоящий из увлажняющего крема и маски.",
     composition: ["воски", "минералы", "масла"],
-    amount: "4 750",
+    price: 4750,
     currency: "₽"
   },
   {
     image: "gift_set_5",
     title: "Подарочный набор № 5",
+    skinType: "для нормальной кожи",
     description: "Весь набор средств Invisible symphony, крем, маска, мусс и гель для умывания.",
     composition: ["воски", "минералы", "масла"],
-    amount: "7 520",
+    price: 7520,
     currency: "₽"
   }
 ];

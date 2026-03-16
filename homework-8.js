@@ -1,12 +1,12 @@
-import { productsCard } from "./array-products-card.js"; // задание 2
+import { productCards } from "./product-cards.js"; // задание 2
 
 // Задание 3
 
 const productCardTemplate = document.getElementById('product-card-template');
 const productCardWrapper = document.querySelector('.product-card-wrapper');
 
-function renderingOfProductCards(array, quantityProductsCard) {
-  array.slice(0, quantityProductsCard).forEach(productCard => {
+function renderProductCards(array) {
+  array.forEach(productCard => {
       const clone = productCardTemplate.content.cloneNode(true);
 
       const img = clone.querySelector('.product-card__images');
@@ -15,7 +15,8 @@ function renderingOfProductCards(array, quantityProductsCard) {
 
       clone.querySelector('.product-card__title').textContent = productCard.title;
       clone.querySelector('.product-card__descr').textContent = productCard.description;
-      clone.querySelector('.product-card__amount').textContent = `${productCard.amount} ${productCard.currency}`;
+      clone.querySelector('.product-card__amount').textContent = `${productCard.price.toLocaleString('ru-RU')} ${productCard.currency}`;
+      clone.querySelector('.product-card__for-skin').textContent = productCard.skinType;
       
       const list = clone.querySelector('.product-card__composition');
       list.innerHTML = '';
@@ -30,7 +31,7 @@ function renderingOfProductCards(array, quantityProductsCard) {
 
 // Задание 4
 
-const arrayOfObjects = productsCard.reduce((acc, {title, description}) => {
+const arrayOfObjects = productCards.reduce((acc, {title, description}) => {
   acc.push({[title]:description});
   return acc;
 }, []);
@@ -40,18 +41,22 @@ console.log(arrayOfObjects);
 // Задание 5
 
 function getUserInputAndShowCards() {
-  let quantityProductsCard = prompt('Сколько карточек вы хотите отобразить на стрнице браузера?')
-  if (quantityProductsCard === null) {
+  let quantityProductCards = prompt('Сколько карточек вы хотите отобразить на стрнице браузера?');
+  const arrayToRender = productCards.slice(0, quantityProductCards);
+  if (quantityProductCards === null) {
     alert('Вы отменили ввод!');
+    getUserInputAndShowCards()
   }
-  else if (isNaN(quantityProductsCard)) {
+  else if (isNaN(quantityProductCards)) {
     alert('Это не число!');
+    getUserInputAndShowCards()
   }
-  else if (quantityProductsCard < 1 || quantityProductsCard > 5) {
+  else if (quantityProductCards < 1 || quantityProductCards > 5) {
     alert("Число должно быть от 1 до 5 включительно!");
+    getUserInputAndShowCards()
   }
   else {
-    renderingOfProductCards(productsCard, quantityProductsCard);
+    renderProductCards(arrayToRender);
   } 
 };
 
