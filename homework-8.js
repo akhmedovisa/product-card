@@ -45,13 +45,13 @@ function getUserInputAndShowCards() {
   const arrayToRender = productCards.slice(0, quantityProductCards);
   if (quantityProductCards === null) {
     alert('Вы отменили ввод!');
-    getUserInputAndShowCards()
+    getUserInputAndShowCards();
   } else if (isNaN(quantityProductCards)) {
     alert('Это не число!');
-    getUserInputAndShowCards()
+    getUserInputAndShowCards();
   } else if (quantityProductCards < 1 || quantityProductCards > 5) {
     alert("Число должно быть от 1 до 5 включительно!");
-    getUserInputAndShowCards()
+    getUserInputAndShowCards();
   } else {
     renderProductCards(arrayToRender);
   }
