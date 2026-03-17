@@ -40,21 +40,30 @@ console.log(arrayOfObjects);
 
 // Задание 5
 
-function getUserInputAndShowCards() {
-  let quantityProductCards = prompt('Сколько карточек вы хотите отобразить на стрнице браузера?');
-  const arrayToRender = productCards.slice(0, quantityProductCards);
-  if (quantityProductCards === null) {
+function getCardsQuantity() {
+  let value = prompt('Сколько карточек вы хотите отобразить?');
+  
+  if (value === null) {
     alert('Вы отменили ввод!');
-    getUserInputAndShowCards();
-  } else if (isNaN(quantityProductCards)) {
-    alert('Это не число!');
-    getUserInputAndShowCards();
-  } else if (quantityProductCards < 1 || quantityProductCards > 5) {
-    alert("Число должно быть от 1 до 5 включительно!");
-    getUserInputAndShowCards();
-  } else {
-    renderProductCards(arrayToRender);
+    getCardsQuantity();
   }
+  if (isNaN(value)) {
+    alert('Это не число!');
+    return getCardsQuantity();
+  }
+  if (value < 1 || value > 5) {
+    alert('Число должно быть от 1 до 5!');
+    return getCardsQuantity();
+  }
+  return value;
 };
 
-getUserInputAndShowCards();
+function callRenderingCards() {
+  const quantity = getCardsQuantity();
+  const arrayToRender = productCards.slice(0, quantity);
+  renderProductCards(arrayToRender);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  callRenderingCards();
+});
