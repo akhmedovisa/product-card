@@ -46,18 +46,15 @@ function getUserInputAndShowCards() {
   if (quantityProductCards === null) {
     alert('Вы отменили ввод!');
     getUserInputAndShowCards()
-  }
-  else if (isNaN(quantityProductCards)) {
+  } else if (isNaN(quantityProductCards)) {
     alert('Это не число!');
     getUserInputAndShowCards()
-  }
-  else if (quantityProductCards < 1 || quantityProductCards > 5) {
+  } else if (quantityProductCards < 1 || quantityProductCards > 5) {
     alert("Число должно быть от 1 до 5 включительно!");
     getUserInputAndShowCards()
-  }
-  else {
+  } else {
     renderProductCards(arrayToRender);
-  } 
+  }
 };
 
 getUserInputAndShowCards();
