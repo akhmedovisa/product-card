@@ -19,20 +19,21 @@ function renderProductCards(array) {
       clone.querySelector('.product-card__for-skin').textContent = productCard.skinType;
       
       const list = clone.querySelector('.product-card__composition');
-      list.innerHTML = '';
       
       productCard.composition.forEach(item => {
-        list.innerHTML += `<li>${item}</li>`;
+        const li = document.createElement('li');
+        li.classList.add("product-card__composition-item");
+        li.textContent = item;
+        list.appendChild(li);
       });
-      
       productCardWrapper.appendChild(clone);
   });
 };
 
 // Задание 4
 
-const arrayOfObjects = productCards.reduce((acc, {title, description}) => {
-  acc.push({[title]:description});
+const arrayOfObjects = productCards.reduce((acc, { title, description }) => {
+  acc.push({ [title]: description });
   return acc;
 }, []);
 
@@ -45,25 +46,19 @@ function getCardsQuantity() {
   
   if (value === null) {
     alert('Вы отменили ввод!');
-    getCardsQuantity();
-  }
-  if (isNaN(value)) {
+    return getCardsQuantity();
+  } else if (isNaN(value)) {
     alert('Это не число!');
     return getCardsQuantity();
-  }
-  if (value < 1 || value > 5) {
+  } else if (value < 1 || value > 5) {
     alert('Число должно быть от 1 до 5!');
     return getCardsQuantity();
   }
   return value;
 };
 
-function callRenderingCards() {
+window.addEventListener('DOMContentLoaded', () => {
   const quantity = getCardsQuantity();
   const arrayToRender = productCards.slice(0, quantity);
   renderProductCards(arrayToRender);
-};
-
-window.addEventListener('DOMContentLoaded', () => {
-  callRenderingCards();
 });
