@@ -59,6 +59,6 @@ function getCardsQuantity() {
 
 window.addEventListener('DOMContentLoaded', () => {
   const quantity = getCardsQuantity();
-  const arrayToRender = productCards.slice(0, quantity);
-  renderProductCards(arrayToRender);
+  const cardsToRender = productCards.slice(0, quantity);
+  renderProductCards(cardsToRender);
 });
