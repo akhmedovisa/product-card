@@ -17,7 +17,7 @@
   margin: 0 auto;
 }
 
-.backround-image {
+.background-image {
   background: url("/images/bg-dandelions.png");
   background-repeat: no-repeat;
 }
@@ -72,6 +72,8 @@
 .product-card__images {
   width: 100%;
   display: block;
+  width: 290px;
+  height: 245px;
 }
 
 .product-card__for-skin {
