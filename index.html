@@ -41,12 +41,90 @@
       </div>
     </template>
   </div>
+  <footer class="footer">
+    <div class="footer__container">
 
+      <div class="footer__info-block">
+        <p class="footer__logo">Product Cards</p>
+        <p class="footer__description">У нас самые лучшие продукты для кожи!</p>
+        <div class="footer__socials">
+          <img src="./images/icon-telegram.png" alt="Telegram" class="footer__social-icon--telegram">
+          <img src="./images/icon-vk.png" alt="VK" class="footer__social-icon--vk">
+        </div>
+      </div>
+      
+      <div class="footer__subscribe">
+        <p class="footer__subscribe-text">Подпишись на наши акции:</p>
+        <form id="email-form" class="footer__form">
+          <label class="footer__input-group">
+            <input type="email" id="user__email" placeholder="Введите Email..." required name="userEmail">
+            <button type="submit" class="footer__button">Подписаться</button>
+          </label>
+          <div class="footer__divider"></div>
+          <p class="footer__copyright">www.product-cards.com©all right reserve</p>
+        </form>
+      </div>
+      <nav class="footer__nav">
+        <div class="footer__column">
+          <h3 class="footer__nav-title">Быстрые ссылки</h3>
+          <a href="">Главная</a>
+          <a href="">Магазин</a>
+          <a href="">Контакты</a>
+        </div>
+      </nav>
+    </div>
+  </footer>
+  <button id="openModalBtn">Регистрация</button>
+
+  <div class="overlay" id="overlay"></div>
+
+  <dоiv class="modal" id="modal">
+    <div class="modal-content">
+      <button title="Закрыть" class="modal__close-button" id="closeModalBtn">&times;</button>
+
+      <h2 class="modal__title">Регистрация:</h2>
+
+      <form id="registerForm" class="modal__form">
+        <label class="modal__field">
+          Имя:
+          <input type="text" name="firstName" required placeholder="Введите имя">
+        </label>
+
+        <label class="modal__field">
+          Фамилия:
+          <input type="text" name="lastName" required placeholder="Введите фамилию">
+        </label>
+
+        <label class="modal__field">
+          Дата рождения:
+          <input type="date" name="birthDate" required>
+        </label>
+
+        <label class="modal__field">
+          Логин:
+          <input type="text" name="login" required placeholder="Введите логин" pattern="[A-Za-z]+" title="Логин должен содеражть только латинские буквы">
+        </label>
+
+        <label class="modal__field">
+          Пароль:
+          <input type="password" name="password" required placeholder="Введите пароль" pattern=".{8,}" title="Пароль должен содеражть минимум 8 символов.">
+        </label>
+
+        <label class="modal__field">
+          Повторите пароль:
+          <input type="password" name="repeatPassword" required placeholder="Повторите пароль">
+        </label>
+
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    </div>
+  </dоiv>
   <script src="/script.js"></script>
   <script src="/homework-5.js"></script>
   <script src="homework-6.js"></script>
   <script type="module" src="homework-7.js"></script>
   <script type="module" src="homework-8.js"></script>
+  <script src="homework-9.js"></script>
 </body>
 
 </html>
