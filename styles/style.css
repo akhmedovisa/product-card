@@ -169,7 +169,7 @@
   height: 87px;
 }
 
-.footer__subscribe{
+.footer__subscribe {
   width: 477px;
   height: 103px;
   margin-right: 200px;
@@ -181,12 +181,12 @@
   margin-top: 40px;
 }
 
-.footer__social-icon--vk {
+.footer__social-vk--icon {
   width: 24px;
   height: 14px;
 }
 
-.footer__social-icon--telegram {
+.footer__social-telegram--icon {
   width: 21px;
   height: 17.61px;
 }
@@ -255,7 +255,7 @@
   max-width: 500px;
 }
 
-.footer__input-group input{
+.footer__input-group input {
   flex: 1;
   border: none;
   outline: none;
@@ -266,7 +266,7 @@
   color: #000000BF;
 }
 
-.footer__input-group button{
+.footer__input-group button {
   border: none;
   background: transparent;
   padding: 10px 15px;
@@ -367,13 +367,13 @@
   gap: 20px;
 }
 
-.modal__title{
+.modal__title {
   text-align: center;
   font-weight: 700;
   font-size: large;
 }
 
-#user-email::placeholder{
+#user-email::placeholder {
   font-family: Montserrat;
   font-weight: 500;
   font-style: Medium;

@@ -12,15 +12,13 @@ emailForm.addEventListener("submit", (event) => {
 
 // Задание 5 и 6
 
-const openBtn = document.getElementById("openModalBtn");
-const closeBtn = document.getElementById("closeModalBtn");
+const openWindowModalBtn = document.getElementById("openModalBtn");
+const closeWindowModalBtn = document.getElementById("closeModalBtn");
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const form = document.getElementById("registerForm");
 
-let user = null;
-
-openBtn.addEventListener("click", () => {
+openWindowModalBtn.addEventListener("click", () => {
   modal.classList.add("modal-showed");
   overlay.style.display = "block";
 });
@@ -30,7 +28,7 @@ function closeModal() {
   overlay.style.display = "none";
 };
 
-closeBtn.addEventListener("click", closeModal);
+closeWindowModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
 form.addEventListener("submit", (event) => {
@@ -38,26 +36,19 @@ form.addEventListener("submit", (event) => {
 
   if (form.checkValidity() === false) {
     alert("Форма заполнена неправильно");
-    return
+    return;
   };
 
   const formData = new FormData(form);
-  const password = btoa(formData.get("password"));
-  const repeatPassword = btoa(formData.get("repeatPassword"));
+  const password = formData.get("password");
+  const repeatPassword = formData.get("repeatPassword");
 
   if (password !== repeatPassword) {
     alert("Пароли не совпадают");
     return;
   };
-
-  user = {
-    firstName: formData.get("firstName"),
-    lastName: formData.get("lastName"),
-    birthDate: formData.get("birthDate"),
-    login: formData.get("login"),
-    password: password,
-    createdOn: new Date()
-  };
+  
+  let user = Object.fromEntries(formData.entries());
 
   console.log(user);
 
