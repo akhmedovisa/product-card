@@ -12,13 +12,13 @@ emailForm.addEventListener("submit", (event) => {
 
 // Задание 5 и 6
 
-const openWindowModalBtn = document.getElementById("openModalBtn");
-const closeWindowModalBtn = document.getElementById("closeModalBtn");
+const openModalWindowBtn = document.getElementById("openModalBtn");
+const closeModalWindowBtn = document.getElementById("closeModalBtn");
 const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const form = document.getElementById("registerForm");
 
-openWindowModalBtn.addEventListener("click", () => {
+openModalWindowBtn.addEventListener("click", () => {
   modal.classList.add("modal-showed");
   overlay.style.display = "block";
 });
@@ -28,7 +28,7 @@ function closeModal() {
   overlay.style.display = "none";
 };
 
-closeWindowModalBtn.addEventListener("click", closeModal);
+closeModalWindowBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
 form.addEventListener("submit", (event) => {
