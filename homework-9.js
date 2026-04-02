@@ -18,6 +18,8 @@ const modal = document.getElementById("modal");
 const overlay = document.getElementById("overlay");
 const form = document.getElementById("registerForm");
 
+let user;
+
 openModalWindowBtn.addEventListener("click", () => {
   modal.classList.add("modal-showed");
   overlay.style.display = "block";
@@ -48,8 +50,8 @@ form.addEventListener("submit", (event) => {
     return;
   };
   
-  let user = Object.fromEntries(formData.entries());
-
+  let user = { ...Object.fromEntries(formData.entries()), createdOn: new Date() };
+  
   console.log(user);
 
   alert("Регистрация успешно завершена!");
