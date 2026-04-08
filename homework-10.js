@@ -1,8 +1,14 @@
 // Задание 3
 
-class Book {
-  constructor(title, author) {
+class Media {
+  constructor(title) {
     this.title = title;
+  }
+};
+
+class Book extends Media {
+  constructor(title, author) {
+    super(title);
     this.author = author;
   }
   
@@ -11,7 +17,7 @@ class Book {
   }
 };
 
-class Film extends Book {
+class Film extends Media {
   constructor(title, director, runtime) {
    super(title);
    this.runtime = runtime;
