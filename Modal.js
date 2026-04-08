@@ -3,9 +3,13 @@
 class Modal {
   constructor(modalId, overlayId) {
     this.modal = document.getElementById(modalId);
+    
     this.overlay = document.getElementById(overlayId);
+    
     this.closeBtn = this.modal.querySelector('#closeModalBtn');
+    
     this.closeBtn.addEventListener('click', () => this.close());
+    
     this.overlay.addEventListener('click', () => this.close());
   }
 
@@ -23,5 +27,4 @@ class Modal {
     return this.modal.classList.contains('modal-showed');
   }
 }
-
 export default Modal;

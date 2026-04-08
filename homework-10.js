@@ -25,7 +25,6 @@ class Film extends Book {
 
 const crimeAndPunishment = new Book("Преступление и наказание", "Фёдор Достоевский");
 crimeAndPunishment.logBookRead();
-console.log(crimeAndPunishment);
 
 const interstellar = new Film("Интерстеллар", "Кристофер Нолан", "169 минут");
 interstellar.logMovieWatched();
