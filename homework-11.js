@@ -60,6 +60,11 @@ class Coffee extends Drink {
       "Специи": this.coffeeSpices
     };
   }
+  
+  grindBeans() {
+    console.log(`"Кофемолка: ЖЖЖЖЖЖ...", "Зёрна: КРРРРР!", "Мотор: ВЖЖЖЖЖЖ...", "Помол начался: ТРРР-ТРРР...",
+      Зёрна ${this.beans} имеют прекрасный аромат`);
+  }
 };
 
 class Tea extends Drink {
@@ -80,6 +85,11 @@ class Tea extends Drink {
       "Лимон": this.lemon,
       "Мёд": this.honey
     };
+  }
+  
+  cutLemonPieces() {
+    console.log(`Нож: ШШШХ!, Лимон: СКРРР!, Доска: ТУК-ТУК!, РЕЗ! РЕЗ! РЕЗ!
+      Из ${this.lemon} лимона-ов мы получили ${this.lemon*20} кусочков`);
   }
 };
 
@@ -102,6 +112,11 @@ class Smoothie extends Drink {
       "Топпинг": this.topping
     };
   }
+  
+  blendAllIngredients() {
+    console.log(`Блендер: ВЖЖЖЖЖ!, Лёд: КРРРРР!, Фрукты: ТРРРРР!, Мотор: ВРРРРРРР...
+      Все ингредиенты ${this.name} были успешно размельчены`);
+  }
 };
 
 class Cafe {
@@ -118,7 +133,7 @@ class Cafe {
   }
 
   orderDrink(drink) {
-    console.log(`${drink.name} заказан`)
+    console.log(`${drink.name} заказан`);
     return drink.serveDrink();
   }
 };
