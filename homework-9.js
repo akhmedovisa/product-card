@@ -13,7 +13,6 @@ emailForm.form.addEventListener("submit", (event) => {
   emailForm.reset();
 });
 
-
 // Задание 5 и 6
 
 const openModalWindowBtn = document.getElementById("openModalBtn");
