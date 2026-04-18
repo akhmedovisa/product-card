@@ -26,5 +26,6 @@ class Modal {
   isOpen() {
     return this.modal.classList.contains('modal-showed');
   }
-}
+};
+
 export default Modal;
