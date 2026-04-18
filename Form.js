@@ -17,6 +17,6 @@ class Form {
   reset() {
     this.form.reset();
   }
-}
+};
 
 export default Form;
