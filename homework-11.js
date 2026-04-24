@@ -8,6 +8,7 @@ const cafe = new Cafe('Мысли', 'Ленина');
 const americano = new Coffee('americano', 0.4, 300, 90, 'arabica', 'no', 'no', 'shugar');
 const blackTea = new Tea('black-tea', 0.2, 100, 100, 'black', 'no', '2', '100ml');
 const fruitSmoothie = new Smoothie('fruitSmoothie', 0.5, 400, -15, 'banana, strawberry', 'default', '200ml', 'chockolate');
+const jucie = new Drink('сок', 0.2, 50, 5);
 
 console.log(cafe.getInfo());
 cafe.orderDrink(americano);
