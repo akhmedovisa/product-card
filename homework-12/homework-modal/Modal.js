@@ -1,4 +1,4 @@
-export class Modal2 {
+export class Modal {
   constructor(modalId, buttonId, shouldCloseOnOverlay) {
     this.modal = document.getElementById(modalId);
     this.overlay = document.getElementById('overlay');
@@ -29,7 +29,7 @@ export class Modal2 {
   #initOpen(buttonId) {
     const button = document.getElementById(buttonId);
     button.addEventListener('click', () => {
-      this.open();
+      this.open(); 
     })
   }
 
