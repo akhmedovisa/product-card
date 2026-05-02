@@ -1,18 +1,16 @@
 function getDataLocalStorage() {
   const user = JSON.parse(localStorage.getItem('users')) || [];
   return user;
-}
+};
 
-function setDataLocalStorageAndRender(array) {
-  localStorage.setItem('users', JSON.stringify(array));
-  
-  renderUserCards(array);
-}
+function setDataLocalStorage(array) {
+  return localStorage.setItem('users', JSON.stringify(array));
+};
 
 async function fetchUsers() {
   const responce = await fetch('users.json');
   if (!responce.ok) {
-    throw new Error('Ошибка при загрузке данных');
+    throw new Error('Ошибка при загрузке данных');s
   }
   return await responce.json(); // responce.json() - (метод fetch()) - то же самое, что и JSON.parse(responce)
 };
@@ -25,10 +23,10 @@ const status = document.querySelector('.download-status');
 
 async function loadData() {
   try {
-    let users = JSON.parse(localStorage.getItem('users'))
+    let users = JSON.parse(localStorage.getItem('users'));
     
     if (users && users.length) {
-      status.remove();
+      status.remove();  
       renderUserCards(users);
       return;
     }
@@ -41,15 +39,14 @@ async function loadData() {
     
     status.textContent = 'Данные загружены !';
     
-    renderUserCards(users);
-    
     setTimeout(() => {
       status.remove();
-    },1000)
+      renderUserCards(users);
+    },1000);
 
   } catch (err) {
     status.textContent = 'Ошибка при загрузке данных(';
-    console.error(err)
+    console.error(err);
   }
 };
 
@@ -72,7 +69,7 @@ function renderUserCards(users) {
     const deleteBtn = clone.querySelector('#delete-card');
     
     deleteBtn.addEventListener('click', () => {
-      deleteUserCard(userCard.id)
+      deleteUserCard(userCard.id);
     });
     
     userCardWrapper.appendChild(clone);
@@ -84,7 +81,9 @@ function deleteUserCard(id) {
   
   const updatedUsersCard = user.filter(user => user.id !== id);
   
-  setDataLocalStorageAndRender(updatedUsersCard);
+  setDataLocalStorage(updatedUsersCard);
+  
+  renderUserCards(updatedUsersCard);
 };
 
 const error = document.querySelector('.error-message');
@@ -104,38 +103,35 @@ function showMessage(text, type = 'error-message') {
 const deleteAllBtn = document.getElementById("delete-all-cards-btn");
 
 deleteAllBtn.addEventListener('click', () => {
+  if (getDataLocalStorage().length === 0) {
+    showMessage('Все пользователи уже удалены');
+    throw new Error('Все пользователи уже удалены');
+  };
   
-  try {
-    if (getDataLocalStorage().length === 0) {
-      throw new Error('Все пользователи уже удалены');
-    };
-    
-    setDataLocalStorageAndRender([])
-    
-    showMessage('Все пользователи успешно удалены', 'success')
-  }
-  catch (err) {
-    console.error(err);
-    showMessage(err.message);
-  }
+  setDataLocalStorage([]);
+  
+  renderUserCards([]);
+  
+  showMessage('Все пользователи успешно удалены', 'success');
 });
 
-const getAllBtn = document.getElementById('get-all-cards-btn');
+const fetchAllUsersBtn = document.getElementById('get-all-cards-btn');
 
-getAllBtn.addEventListener('click', async () => {
-  
+fetchAllUsersBtn.addEventListener('click', async () => {
   try {
     const userData = await fetchUsers();
     
     if (getDataLocalStorage().length === userData.length) {
+      showMessage('Все пользователи уже отображаются');
       throw new Error('Все пользователи уже отображаются');
     };
     
-    setDataLocalStorageAndRender(userData)
+    setDataLocalStorage(userData);
+    
+    renderUserCards(userData);
     
     showMessage('Все пользователи успешно восстановлены', 'success');
-  } 
-  catch (err) {
+  } catch (err) {
     console.error(err);
     showMessage(err.message);
   }
