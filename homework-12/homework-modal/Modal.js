@@ -8,7 +8,7 @@ export class Modal {
   
   handleClose = () => { 
     this.close()
-   }
+  }
   
   open() {
     this.modal.classList.add('modal-showed');
