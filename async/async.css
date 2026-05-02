@@ -1,9 +1,8 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .download-status{
   display: block;
@@ -27,7 +26,7 @@
 .user-card {
   position: relative;
   width: 350px;
-  min-height: 303px;
+  min-height: 356px;
   background-color: #5353f0;
   border: 1px solid #F7F7FA;
   padding: 25px;
@@ -43,14 +42,6 @@
   font-size: 20px;
 }
 
-#delete-all-cards-btn {
-
-}
-
-#get-all-cards-btn{
-  
-}
-
 #delete-card {
   position: absolute;
   right: 10px;
@@ -59,7 +50,7 @@
   cursor: pointer;
 }
 
-.error {
+.error-message {
   display: none;
   position: absolute;
   background-color: rgba(228, 36, 36, 0.952);

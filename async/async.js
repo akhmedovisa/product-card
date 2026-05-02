@@ -1,3 +1,22 @@
+function getDataLocalStorage() {
+  const user = JSON.parse(localStorage.getItem('users')) || [];
+  return user;
+}
+
+function setDataLocalStorageAndRender(array) {
+  localStorage.setItem('users', JSON.stringify(array));
+  
+  renderUserCards(array);
+}
+
+async function fetchUsers() {
+  const responce = await fetch('users.json');
+  if (!responce.ok) {
+    throw new Error('Ошибка при загрузке данных');
+  }
+  return await responce.json(); // responce.json() - (метод fetch()) - то же самое, что и JSON.parse(responce)
+};
+
 // Делаем запрос данных
 
 const userCardTemplate = document.querySelector('.user-info');
@@ -5,47 +24,42 @@ const userCardWrapper = document.querySelector('.user-card-wrapper');
 const status = document.querySelector('.download-status');
 
 async function loadData() {
-  
-  let users = JSON.parse(localStorage.getItem('users'))
-  
-  if (users && users.length) {
-    if (status) {
+  try {
+    let users = JSON.parse(localStorage.getItem('users'))
+    
+    if (users && users.length) {
       status.remove();
+      renderUserCards(users);
+      return;
     }
+    
+    status.textContent = 'Данные загружаются...';
+    
+    users = await fetchUsers();
+    
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    status.textContent = 'Данные загружены !';
+    
     renderUserCards(users);
-    return;
+    
+    setTimeout(() => {
+      status.remove();
+    },1000)
+
+  } catch (err) {
+    status.textContent = 'Ошибка при загрузке данных(';
+    console.error(err)
   }
-  
-  status.textContent = 'Данные загружаются...';
-  setTimeout(async () => {
-    try {
-      const responce = await fetch('users.json');
-      const userData = await responce.json(); // responce.json() - (метод fetch()) - то же самое, что и JSON.parse(responce)
-
-      localStorage.setItem('users', JSON.stringify(userData));
-
-      status.textContent = 'Данные загружены !';
-
-      renderUserCards(userData)
-      setTimeout(() => {
-        status.remove();
-      },1000)
-    }
-    catch (error) {
-      status.textContent = 'Ошибка при загрузке данных ('
-      throw new Error("Ошибка при загрузке данных (");
-    }
-  }, 5000)
 };
 
 function renderUserCards(users) {
 
   userCardWrapper.innerHTML = '';
 
-  users.forEach((userCard, i) => {
+  users.forEach((userCard) => {
 
     const clone = userCardTemplate.content.cloneNode(true);
-
 
     clone.querySelector('.user__id').textContent = `ID: ${userCard.id}`;
     clone.querySelector('.user__name').textContent = `Name: ${userCard.name}`;
@@ -58,19 +72,20 @@ function renderUserCards(users) {
     const deleteBtn = clone.querySelector('#delete-card');
     
     deleteBtn.addEventListener('click', () => {
-      let userFromStorage = JSON.parse(localStorage.getItem('users'));
-
-      userFromStorage.splice(i, 1);
-
-      localStorage.setItem('users', JSON.stringify(userFromStorage));
-
-      renderUserCards(userFromStorage);
+      deleteUserCard(userCard.id)
     });
     
     userCardWrapper.appendChild(clone);
   });
 };
 
+function deleteUserCard(id) {
+  const user = JSON.parse(localStorage.getItem('users'));
+  
+  const updatedUsersCard = user.filter(user => user.id !== id);
+  
+  setDataLocalStorageAndRender(updatedUsersCard);
+};
 const error = document.querySelector('.error-message');
 
 function showMessage(text, type = 'error') {
@@ -80,9 +95,7 @@ function showMessage(text, type = 'error') {
 
   error.className = type;
 
-  setTimeout(() => {
-    error.style.display = 'none';
-  }, 3000);
+  error.style.display = 'none';
 }
 
 const deleteAllBtn = document.getElementById("delete-all-cards-btn");
@@ -90,13 +103,11 @@ const deleteAllBtn = document.getElementById("delete-all-cards-btn");
 deleteAllBtn.addEventListener('click', () => {
   
   try {
-    if (localStorage.getItem('users') === '[]') {
+    if (getDataLocalStorage().length === 0) {
       throw new Error('Все пользователи уже удалены');
     };
     
-    localStorage.setItem('users', JSON.stringify([]));
-    
-    renderUserCards([]);
+    setDataLocalStorageAndRender([])
     
     showMessage('Все пользователи успешно удалены', 'succes')
   }
@@ -111,18 +122,15 @@ const getAllBtn = document.getElementById('get-all-cards-btn');
 getAllBtn.addEventListener('click', async () => {
   
   try {
-    const response = await fetch('./users.json');
-    const userData = await response.json();
+    const userData = await fetchUsers();
     
-    if (JSON.parse(localStorage.getItem('users')).length === userData.length) {
+    if (getDataLocalStorage().length === userData.length) {
       throw new Error('Все пользователи уже отображаются');
     };
     
-    localStorage.setItem('users', JSON.stringify(userData));
+    setDataLocalStorageAndRender(userData)
     
-    renderUserCards(userData);
-    
-    showMessage('Все пользователи успешно восстановлены', 'succes');
+    showMessage('Все пользователи успешно восстановлены', 'success');
   } 
   catch (err) {
     console.error(err);
