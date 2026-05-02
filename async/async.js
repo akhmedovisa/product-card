@@ -86,16 +86,19 @@ function deleteUserCard(id) {
   
   setDataLocalStorageAndRender(updatedUsersCard);
 };
+
 const error = document.querySelector('.error-message');
 
-function showMessage(text, type = 'error') {
+function showMessage(text, type = 'error-message') {
   
   error.style.display = 'block';
   error.textContent = text;
 
   error.className = type;
 
-  error.style.display = 'none';
+  setTimeout(() => {
+    error.style.display = 'none';
+  }, 2000);
 }
 
 const deleteAllBtn = document.getElementById("delete-all-cards-btn");
@@ -109,7 +112,7 @@ deleteAllBtn.addEventListener('click', () => {
     
     setDataLocalStorageAndRender([])
     
-    showMessage('Все пользователи успешно удалены', 'succes')
+    showMessage('Все пользователи успешно удалены', 'success')
   }
   catch (err) {
     console.error(err);
