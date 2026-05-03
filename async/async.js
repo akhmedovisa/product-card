@@ -4,7 +4,7 @@ function getDataLocalStorage() {
 };
 
 function setDataLocalStorage(array) {
-  return localStorage.setItem('users', JSON.stringify(array));
+  localStorage.setItem('users', JSON.stringify(array));
 };
 
 async function fetchUsers() {
