@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.download-status{
+.download-status {
   display: block;
   margin: 0;
   height: 100vh;
@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.user-card-wrapper{
+.user-card-wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
