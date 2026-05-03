@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="async.css">
+</head>
+<body>
+  <span class="download-status">Данные загружаются...</span>
+  <span class="error-message"></span>
+  <button id="delete-all-cards-btn">Удалить все карточки</button>
+  <button id="get-all-cards-btn">Получить все карточки</button>
+  <div class="user-card-wrapper"></div>
+  <template class="user-info">
+    <div class="user-card">
+      <p class="user__id"></p>
+      <p class="user__name"></p>
+      <p class="user__surname"></p>
+      <p class="user__email"></p>
+      <p class="user__age"></p>
+      <p class="user__city"></p>
+      <p class="user__status-active"></p>
+      <span id="delete-card">🗑️</span>
+    </div>
+  </template>
+  <script src="async.js" type="module"></script>
+</body>
+</html>

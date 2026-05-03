@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.download-status {
+  display: block;
+  margin: 0;
+  height: 100vh;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-card-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 1500px;
+  gap: 70px;
+  margin: 0 auto;
+}
+
+.user-card {
+  position: relative;
+  width: 350px;
+  min-height: 356px;
+  background-color: #5353f0;
+  border: 1px solid #F7F7FA;
+  padding: 25px;
+  z-index: 1;
+}
+
+.user-card p:first-child {
+  font-size: 20px;
+}
+
+.user-card p:not(:first-child) {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#delete-card {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: #5353f0;
+  cursor: pointer;
+}
+
+.error-message {
+  display: none;
+  position: absolute;
+  background-color: rgba(228, 36, 36, 0.952);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  justify-content: center;
+  font-size: 30px;
+  color: black;
+  text-align: center;
+}
