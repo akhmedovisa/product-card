@@ -10,7 +10,7 @@ function setDataLocalStorage(array) {
 async function fetchUsers() {
   const responce = await fetch('users.json');
   if (!responce.ok) {
-    throw new Error('Ошибка при загрузке данных');s
+    throw new Error('Ошибка при загрузке данных');
   }
   return await responce.json(); // responce.json() - (метод fetch()) - то же самое, что и JSON.parse(responce)
 };
@@ -22,27 +22,28 @@ const userCardWrapper = document.querySelector('.user-card-wrapper');
 const status = document.querySelector('.download-status');
 
 async function loadData() {
+
+  let users = getDataLocalStorage();
+
+  if (users && users.length) {
+    status.remove();
+    renderUserCards(users);
+    return;
+  }
+
+  status.textContent = 'Данные загружаются...';
+
   try {
-    let users = JSON.parse(localStorage.getItem('users'));
-    
-    if (users && users.length) {
-      status.remove();  
-      renderUserCards(users);
-      return;
-    }
-    
-    status.textContent = 'Данные загружаются...';
-    
     users = await fetchUsers();
-    
+
     localStorage.setItem('users', JSON.stringify(users));
-    
+
     status.textContent = 'Данные загружены !';
-    
+ 
     setTimeout(() => {
       status.remove();
       renderUserCards(users);
-    },1000);
+    }, 1000);
 
   } catch (err) {
     status.textContent = 'Ошибка при загрузке данных(';
